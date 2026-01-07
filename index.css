@@ -88,7 +88,7 @@ body::-webkit-scrollbar {
 }
 
 #exbox {
-    margin-top: 350px;
+    margin-top: 370px;
     color: rgb(201, 201, 201);
 }
 
@@ -114,4 +114,20 @@ body::-webkit-scrollbar {
 
 #ex3 {
     font-size: 50px;
+}
+
+#eb1 {
+    margin-left: 100px;
+    margin-bottom: 150px;
+}
+
+#eb2 {
+    text-align: right;
+    margin-right: 100px;
+    margin-bottom: 150px;
+}
+
+#eb3 {
+    margin-left: 100px;
+    margin-bottom: 150px;
 }
