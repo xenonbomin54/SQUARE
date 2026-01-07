@@ -40,8 +40,29 @@ body::-webkit-scrollbar {
 }
 
 #signin {
+    transition: 0.2s;
+    cursor: pointer;
     font-size: 25px;
 }
+
+#signin:hover{
+    transition: 0.2s;
+    scale: 1.05;
+    font-weight: 600;
+}
+
+#signup {
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+#signup:hover{
+    transition: 0.2s;
+    scale: 1.05;
+    font-weight: 600;
+}
+
 
 #welcome {
     display: flexbox;
@@ -130,4 +151,31 @@ body::-webkit-scrollbar {
 #eb3 {
     margin-left: 100px;
     margin-bottom: 150px;
+}
+
+#go2 {
+    transition: 0.2s;
+    font-size: 50px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgb(201, 201, 201);
+    color: rgb(53, 53, 53);
+    border-radius: 15px;
+    font-weight: 600;
+    border: none;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+#go2:hover {
+    transition: 0.2s;
+    scale: 1.1;
+}
+
+#butt {
+    text-align: right;
+    margin-right: 400px;
+    margin-top: -550px;
+    margin-bottom: 300px;
 }
