@@ -2,14 +2,19 @@ body {
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     margin: 0px;
-    background-color: rgb(73, 73, 73);
+    background-color: rgb(26, 26, 26);
+    scrollbar-width: 0px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 #nav {
     color: rgb(201, 201, 201);
     height: 8vh;
     width: 100vw;
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(14, 14, 14);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,6 +26,9 @@ body {
     font-weight: 600;
     font-size: 45px;
     margin-left: 20px;
+    background-image: linear-gradient(to bottom, #ffffff, #999999);
+    background-clip: text;
+    color: transparent;
 }
 
 #menu {
@@ -47,6 +55,9 @@ body {
     margin: 0 auto;
     font-size: 110px;
     color: rgb(201, 201, 201);
+    background-image: linear-gradient(to bottom, #ffffff, #999999);
+    background-clip: text;
+    color: transparent;
 }
 
 #ment2 {
@@ -74,4 +85,33 @@ body {
 #go:hover {
     transition: 0.2s;
     scale: 1.1;
+}
+
+#exbox {
+    margin-top: 350px;
+    color: rgb(201, 201, 201);
+}
+
+#tlogo {
+    width : 45px;
+    height: 45px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: -10px;
+}
+
+#boxbox {
+    display: flex;
+}
+
+#ex1 {
+    font-size: 50px;
+}
+
+#ex2 {
+    font-size: 50px;
+}
+
+#ex3 {
+    font-size: 50px;
 }
