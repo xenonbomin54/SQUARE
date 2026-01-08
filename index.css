@@ -213,12 +213,24 @@ body::-webkit-scrollbar {
     width: 30vw;
     font-size: 30px;
     margin-bottom: 30px;
-    border: none;
-    outline: none !important;
     padding: 10px;
-    border-radius: 10px; 
+    border-radius: 5px; 
     color : rgb(14, 14, 14);
     background-color: rgb(201, 201, 201);
+    outline: none !important;
+    border: none;
+
+}
+
+#ipid:focus {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #ippw {
@@ -228,9 +240,21 @@ body::-webkit-scrollbar {
     border: none;
     outline: none !important;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     color : rgb(14, 14, 14);
     background-color: rgb(201, 201, 201);
+}
+
+#ippw:focus {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #golg {
@@ -241,7 +265,7 @@ body::-webkit-scrollbar {
     padding-right: 15px;
     background-color: rgb(201, 201, 201);
     color: rgb(53, 53, 53);
-    border-radius: 15px;
+    border-radius: 8px;
     font-weight: 600;
     border: none;
     margin-top: 50px;
