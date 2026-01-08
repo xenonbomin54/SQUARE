@@ -274,5 +274,25 @@ body::-webkit-scrollbar {
 
 #golg:hover {
     transition: 0.2s;
-    scale: 1.1;
+    scale: 1.05;
+}
+
+#golg2 {
+    transition: 0.2s;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgb(201, 201, 201);
+    color: rgb(53, 53, 53);
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#golg2:hover {
+    transition: 0.2s;
+    scale: 1.05;
 }
