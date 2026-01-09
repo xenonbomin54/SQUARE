@@ -236,6 +236,56 @@ body::-webkit-scrollbar {
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
+#ipid2 {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    outline: none !important;
+    border: none;
+
+}
+
+#ipid2:focus {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+#ipem {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    outline: none !important;
+    border: none;
+
+}
+
+#ipem:focus {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+
+
 #ippw {
     width: 30vw;
     font-size: 30px;
@@ -249,6 +299,54 @@ body::-webkit-scrollbar {
 }
 
 #ippw:focus {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+#ippw2 {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none !important;
+    padding: 10px;
+    border-radius: 5px;
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+}
+
+#ippw2:focus {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px; 
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+#ippw3 {
+    width: 30vw;
+    font-size: 30px;
+    margin-bottom: 30px;
+    border: none;
+    outline: none !important;
+    padding: 10px;
+    border-radius: 5px;
+    color : rgb(14, 14, 14);
+    background-color: rgb(201, 201, 201);
+}
+
+#ippw3:focus {
     width: 30vw;
     font-size: 30px;
     margin-bottom: 30px;
@@ -298,4 +396,16 @@ body::-webkit-scrollbar {
 #golg2:hover {
     transition: 0.2s;
     scale: 1.05;
+}
+
+.error {
+    border: solid !important;
+    border-color: red !important;
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
 }
