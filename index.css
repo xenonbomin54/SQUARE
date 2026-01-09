@@ -29,6 +29,7 @@ body::-webkit-scrollbar {
     background-image: linear-gradient(to bottom, #ffffff, #999999);
     background-clip: text;
     color: transparent;
+    cursor: pointer;
 }
 
 #menu {
@@ -96,7 +97,7 @@ body::-webkit-scrollbar {
     padding-right: 15px;
     background-color: rgb(201, 201, 201);
     color: rgb(53, 53, 53);
-    border-radius: 15px;
+    border-radius: 10px;
     font-weight: 600;
     border: none;
     margin-top: 50px;
@@ -105,7 +106,8 @@ body::-webkit-scrollbar {
 
 #go:hover {
     transition: 0.2s;
-    scale: 1.1;
+    scale: 1.05;
+    box-shadow: 0 0px  10px 1px rgba(255, 255, 255, 0.8);
 }
 
 #exbox {
@@ -161,7 +163,7 @@ body::-webkit-scrollbar {
     padding-right: 40px;
     background-color: rgb(201, 201, 201);
     color: rgb(53, 53, 53);
-    border-radius: 15px;
+    border-radius: 10px;
     font-weight: 600;
     border: none;
     margin-top: 50px;
@@ -170,7 +172,8 @@ body::-webkit-scrollbar {
 
 #go2:hover {
     transition: 0.2s;
-    scale: 1.1;
+    scale: 1.05;
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #butt {
