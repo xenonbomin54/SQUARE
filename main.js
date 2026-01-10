@@ -38,3 +38,4 @@ function signUp() {
     alert("Re-Entered password does not match with first one");
   }
 }
+
