@@ -35,9 +35,6 @@ body::-webkit-scrollbar {
 #menu {
     width : 8.5vw;
     margin: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 #signin {
@@ -404,12 +401,6 @@ body::-webkit-scrollbar {
     animation: shake 0.3s;
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    75% { transform: translateX(5px); }
-}
-
 #v1 {
     display: flex;
 }
@@ -419,3 +410,11 @@ video {
     height: 500px;
 }
 
+#userMenu {
+    background-color: rgb(20, 20, 20);
+    color: rgb(201, 201, 201);
+    width: 15vw;
+    margin-left: auto;
+    text-align: center;
+    padding: 10px;
+}

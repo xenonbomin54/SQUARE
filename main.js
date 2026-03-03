@@ -81,4 +81,15 @@ async function und() {
 und();
 
 
+async function signOut() {
+  const { error } = await _supabase.auth.signOut();
+  
+  if (error) {
+    alert("로그아웃 실패: " + error.message);
+  } else {
+    alert("로그아웃 되었습니다.");
+    window.location.href = 'index.html'; 
+  }
+}
+
 
