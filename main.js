@@ -51,11 +51,10 @@ async function signIn() {
     }
 }
 
+const currentPage = window.location.pathname.split("/").pop();
+
 async function checkUser() {
   const { data: { session } } = await _supabase.auth.getSession();
-
-  // 현재 파일 이름 확인 (예: index.html 또는 main.html)
-  const currentPage = window.location.pathname.split("/").pop();
 
   if (session) {
     console.log('로그인 상태 유지 중:', session.user);
@@ -72,4 +71,14 @@ async function checkUser() {
 }
 
 checkUser();
+
+
+async function und() {
+  const { data: { session } } = await _supabase.auth.getSession();
+  document.getElementById("userName").innerHTML = session.user.user_metadata.nickname;
+}
+
+und();
+
+
 
