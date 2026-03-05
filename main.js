@@ -30,7 +30,7 @@ async function signUp() {
         email: suem.value,
         password: supw.value,
         options: {
-            data: { nickname: suid.value } // ipid2에 입력한 아이디를 닉네임으로 저장
+            data: { nickname: suid.value }
         }
     });
 
@@ -50,3 +50,26 @@ async function signIn() {
         window.location.href = 'index.html'; 
     }
 }
+
+async function checkUser() {
+  const { data: { session } } = await _supabase.auth.getSession();
+
+  // 현재 파일 이름 확인 (예: index.html 또는 main.html)
+  const currentPage = window.location.pathname.split("/").pop();
+
+  if (session) {
+    console.log('로그인 상태 유지 중:', session.user);
+    if (currentPage === 'index.html' || currentPage === 'signin.html' || currentPage === 'signup.html') {
+      window.location.href = 'main.html';
+    }
+  } else {
+    console.log('로그인 필요');
+    if (currentPage === 'main.html') {
+      alert("로그인이 필요합니다.");
+      window.location.href = 'index.html';
+    }
+  }
+}
+
+checkUser();
+
