@@ -39,3 +39,6 @@ function signUp() {
   }
 }
 
+const SUPABASE_URL = '여기에_URL_복사';
+  const SUPABASE_KEY = '여기에_ANON_KEY_복사';
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
