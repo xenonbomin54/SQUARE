@@ -137,42 +137,59 @@ async function writePost() {
   }
 }
 
-async function getPosts() {
+let pageCount = 0;
+
+async function init() {
+  const { data: { session } } = await _supabase.auth.getSession();
+  const path = window.location.pathname.split("/").pop();
+
+  if (session) {
+    if (path === 'index.html' || path === 'signin.html' || path === '') {
+      window.location.href = 'main.html';
+      return;
+    }
+    if (path === 'main.html') {
+      getPosts();
+    }
+  } else {
+    if (path === 'main.html') {
+      window.location.href = 'index.html';
+    }
+  }
+}
+
+async function getPosts(isMore) {
+  if (isMore != true) {
+    pageCount = 0;
+    const list = document.getElementById('postList');
+    if (list) list.innerHTML = "";
+  }
+
+  const start = pageCount * 10;
+  const end = start + 9;
+
   const result = await _supabase
     .from('posts')
     .select('*')
-    .order('created_at', { ascending: false });
+    .order('created_at', { ascending: false })
+    .range(start, end);
+
+  if (result.error) return;
 
   const rows = result.data;
-  const error = result.error;
-
-  if (error != null) {
-    alert("오류 발생: " + error.message);
-    return;
-  }
-
   const list = document.getElementById('postList');
-  list.innerHTML = "";
 
   for (let i = 0; i < rows.length; i = i + 1) {
     const item = rows[i];
     const box = document.createElement('div');
-    
-    box.style.border = "1px solid #ccc";
-    box.style.margin = "10px";
-    box.style.padding = "10px";
-    box.style.backgroundColor = "#f9f9f9";
-
-    const name = "<strong>" + item.author + "</strong>";
-    const time = " <small>" + new Date(item.created_at).toLocaleString() + "</small>";
-    const text = "<p>" + item.content + "</p>";
-
-    box.innerHTML = name + time + text;
-    
+    box.style = "border:1px solid #ccc; margin:10px; padding:10px; background:#f9f9f9;";
+    box.innerHTML = "<strong>" + item.author + "</strong><p>" + item.content + "</p>";
     list.appendChild(box);
   }
+
+  pageCount = pageCount + 1;
+  document.getElementById('moreBtn').style.display = rows.length < 10 ? "none" : "block";
 }
 
-getPosts();
-
+init();
 
