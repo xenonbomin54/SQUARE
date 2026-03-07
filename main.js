@@ -13,32 +13,40 @@ const suem = document.getElementById('ipem');
 const supw = document.getElementById('ippw2');
 const supwC = document.getElementById('ippw3');
 
-function signIn() {
-  if (siid.value.trim() == '') {
-    alert("Enter ID");
-  }else if (sipw.value.trim()==''){
-    alert("Enter password")
-  }
-}
-
-function signUp() {
-  if (suid.value.trim() == '') {
-    alert("Enter ID")
-  }else if(suid.value.length<5 || suid.value.length>15){
-    alert("ID must be shorter than 15 and longer than 5")
-  }else if (suem.value.trim()==''){
-    alert("Enter email");
-  } else if (!suem.checkValidity()){
-    alert("Email isn't the right format");
-  } else if (supw.value.trim()==''){
-    alert("Enter password");
-  }else if(supw.value.length<5 || supw.value.length>15){
-    alert("password must shorter than 15 and longer than 5")
-  }else if (supwC.value!==supw.value){
-    alert("Re-Entered password does not match with first one");
-  }
-}
-
-const SUPABASE_URL = '여기에_URL_복사';
-  const SUPABASE_KEY = '여기에_ANON_KEY_복사';
+const { createClient } = supabase;
+const _supabase = createClient('https://ixtxxrzqdptsdfxhziic.supabase.co', 'sb_publishable_QuuA_aN2Wndv1E430nX0bQ_0tTkisc8'); 
+const SUPABASE_URL = 'https://ixtxxrzqdptsdfxhziic.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_QuuA_aN2Wndv1E430nX0bQ_0tTkisc8';
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function signUp() {
+    // 비밀번호 일치 확인
+    if (supw.value !== supwC.value) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return;
+    }
+
+    const { data, error } = await _supabase.auth.signUp({
+        email: suem.value,
+        password: supw.value,
+        options: {
+            data: { nickname: suid.value } // ipid2에 입력한 아이디를 닉네임으로 저장
+        }
+    });
+
+    if (error) alert("가입 실패: " + error.message);
+    else alert("가입 성공! 로그인을 진행하세요.");
+}
+
+async function signIn() {
+    const { data, error } = await _supabase.auth.signInWithPassword({
+        email: siid.value,
+        password: sipw.value,
+    });
+
+    if (error) alert("로그인 실패: " + error.message);
+    else {
+        alert("로그인 성공!");
+        window.location.href = 'index.html'; 
+    }
+}
