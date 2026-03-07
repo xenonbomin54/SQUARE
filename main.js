@@ -107,4 +107,72 @@ function openUserMenu() {
   }
 }
 
+async function writePost() {
+  // 1. 현재 세션에서 작성자 정보 가져오기
+  const { data: { session } } = await _supabase.auth.getSession();
+  
+  if (!session) {
+    alert("로그인이 필요합니다.");
+    return;
+  }
+
+  const content = document.getElementById('postContent').value;
+  const nickname = session.user.user_metadata.nickname;
+
+  const { data, error } = await _supabase
+    .from('posts')
+    .insert([
+      { 
+        content: content, 
+        author: nickname 
+      }
+    ]);
+
+  if (error) {
+    alert("글 등록 실패: " + error.message);
+  } else {
+    alert("글이 등록되었습니다!");
+    document.getElementById('postContent').value = "";
+    getPosts();
+  }
+}
+
+async function getPosts() {
+  const result = await _supabase
+    .from('posts')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  const rows = result.data;
+  const error = result.error;
+
+  if (error != null) {
+    alert("오류 발생: " + error.message);
+    return;
+  }
+
+  const list = document.getElementById('postList');
+  list.innerHTML = "";
+
+  for (let i = 0; i < rows.length; i = i + 1) {
+    const item = rows[i];
+    const box = document.createElement('div');
+    
+    box.style.border = "1px solid #ccc";
+    box.style.margin = "10px";
+    box.style.padding = "10px";
+    box.style.backgroundColor = "#f9f9f9";
+
+    const name = "<strong>" + item.author + "</strong>";
+    const time = " <small>" + new Date(item.created_at).toLocaleString() + "</small>";
+    const text = "<p>" + item.content + "</p>";
+
+    box.innerHTML = name + time + text;
+    
+    list.appendChild(box);
+  }
+}
+
+getPosts();
+
 
