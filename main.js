@@ -88,7 +88,22 @@ async function signOut() {
     alert("로그아웃 실패: " + error.message);
   } else {
     alert("로그아웃 되었습니다.");
-    window.location.href = 'index.html'; 
+    window.location.href = 'signin.html'; 
+  }
+}
+UMV = 0;
+function openUserMenu() {
+  const menu = document.getElementById("userMenu");
+  if(UMV === 0) {
+    menu.style.height = "auto";
+    menu.style.padding = "10px";
+    menu.style.fontSize = "16px";
+    UMV = 1;
+  } else {
+    menu.style.height = "0px";
+    menu.style.padding = "0px";
+    menu.style.fontSize = "0px";
+    UMV = 0;
   }
 }
 
