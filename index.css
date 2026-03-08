@@ -523,3 +523,11 @@ video {
     background-color: rgb(201, 201, 201);
     color: rgb(255, 255, 255);
 }
+
+#morei {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    cursor: pointer;
+}

@@ -130,7 +130,6 @@ async function writePost() {
   if (error) {
     alert("글 등록 실패: " + error.message);
   } else {
-    alert("글이 등록되었습니다!");
     document.getElementById('postContent').value = "";
     getPosts();
   }
@@ -177,7 +176,9 @@ function checkPost(text) {
   return true;
 }
 
+
 async function getPosts(isMore) {
+  const { data: { session } } = await _supabase.auth.getSession()
   if (isMore != true) {
     pageCount = 0;
     const list = document.getElementById('postList');
@@ -198,18 +199,51 @@ async function getPosts(isMore) {
   const rows = result.data;
   const list = document.getElementById('postList');
 
+
+
   for (let i = 0; i < rows.length; i = i + 1) {
     const item = rows[i];
     const box = document.createElement('div');
-    box.style = "border-radius: 10px; padding:10px; background:rgb(49, 49, 49); color:rgb(201, 201, 201); width: 70vw; margin: 0 auto; margin-top: 10px;" ;
+    box.style = "border-radius: 10px; padding:10px; background:rgb(49, 49, 49); color:rgb(201, 201, 201); width: 70vw; margin: 0 auto; margin-top: 10px; position: relative;" ;
     const writer = "<strong>" + item.author + "</strong>";
-    const date = new Date(item.created_at); // 컴퓨터용 시간을 우리용 시간으로 변경
+    const date = new Date(item.created_at);
     const timeText = " <small style='color:gray;'>" + date.toLocaleString() + "</small>";
     const body = "<p>" + item.content + "</p>";
+    const morei = document.createElement('img');
+    morei.src= "more.png"
+    morei.id = "morei"
 
-box.innerHTML = writer + timeText + body;
-    list.appendChild(box);
+    const menu = document.createElement('div');
+  menu.style = "position:absolute; top:35px; right:10px; background:white; border:1px solid #ccc; border-radius:5px; display:none; z-index:10; box-shadow: 0 2px 5px rgba(0,0,0,0.2);";
+  
+  const delBtn = document.createElement('button');
+  delBtn.innerText = "삭제";
+  delBtn.style = "border:none; padding:10px; color:red; cursor:pointer; width:100px; background-color : rgb(70,70,70); outline: none; border-radius: 5px; margin: -1px";
+
+  var mimimimi = 0;
+  
+  morei.onclick = function() {
+    if(mimimimi===0){
+    menu.style.display = "block";
+    mimimimi = 1;
+  }else {
+    menu.style.display = "none";
+    mimimimi = 0;
   }
+}
+  
+  delBtn.onclick = function() { 
+    deleteP(item.id);
+  }
+
+    box.innerHTML = writer + timeText + body;
+    box.appendChild(morei);
+    menu.appendChild(delBtn);
+    box.appendChild(menu);
+    
+    list.appendChild(box);
+  };
+  
 
   pageCount = pageCount + 1;
   document.getElementById('moreBtn').style.display = rows.length < 10 ? "none" : "block";
@@ -217,3 +251,20 @@ box.innerHTML = writer + timeText + body;
 
 init();
 
+async function deleteP(postId) {
+  const ask = confirm("이 글을 정말 삭제할까요?");
+  if (ask == false) {
+    return;
+  }
+
+  const { error } = await _supabase
+    .from('posts')
+    .delete()
+    .eq('id', postId);
+
+  if (error != null) {
+    alert("삭제 실패");
+  } else {
+    getPosts();
+  }
+}
