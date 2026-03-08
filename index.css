@@ -412,9 +412,9 @@ video {
 }
 
 #userMenu {
-    background-color: rgb(20, 20, 20);
+    background-color: rgb(46, 46, 46);
     color: rgb(196, 0, 0);
-    width: 15vw;
+    width: 12vw;
     margin-left: auto;
     text-align: center;
     padding: 0px;
@@ -457,6 +457,7 @@ video {
     cursor: pointer;
     transition: 0.2s;
     color: rgb(201, 201, 201);
+    margin-top: 1vh;
 }
 
 #postBtn:hover {
@@ -486,6 +487,7 @@ video {
 
 #postList {
     margin-top: 10vh;
+    margin-bottom: 5vh;
 }
 
 #wt {
@@ -494,4 +496,30 @@ video {
     font-size: 4vh;
     font-weight: 500;
     margin-top: 5vh;
+}
+
+#userName {
+    font-size: 20px;
+}
+
+#moreBtn {
+    height: 3vh;
+    width: 10vw;
+    display: inline-block;
+    background-color: rgb(92, 92, 92);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: rgb(201, 201, 201);
+    margin: 0 auto;
+    margin-top: 1vh;
+    margin-bottom: 5vh;
+}
+
+#moreBtn:hover {
+    transition: 0.2s;
+    width: 12vw;
+    background-color: rgb(201, 201, 201);
+    color: rgb(255, 255, 255);
 }
