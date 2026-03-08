@@ -199,55 +199,61 @@ async function getPosts(isMore) {
   const rows = result.data;
   const list = document.getElementById('postList');
 
-
-
   for (let i = 0; i < rows.length; i = i + 1) {
     const item = rows[i];
     const box = document.createElement('div');
-    box.style = "border-radius: 10px; padding:10px; background:rgb(49, 49, 49); color:rgb(201, 201, 201); width: 70vw; margin: 0 auto; margin-top: 10px; position: relative;" ;
+    box.style = "border-radius: 10px; padding:10px; background:rgb(49, 49, 49); color:rgb(201, 201, 201); width: 70vw; margin: 0 auto; margin-top: 10px; position: relative;";
+    
+    // 1. 글자 내용 먼저 채우기
     const writer = "<strong>" + item.author + "</strong>";
     const date = new Date(item.created_at);
     const timeText = " <small style='color:gray;'>" + date.toLocaleString() + "</small>";
     const body = "<p>" + item.content + "</p>";
-    const morei = document.createElement('img');
-    morei.src= "more.png"
-    morei.id = "morei"
-
-    const menu = document.createElement('div');
-  menu.style = "position:absolute; top:35px; right:10px; background:white; border:1px solid #ccc; border-radius:5px; display:none; z-index:10; box-shadow: 0 2px 5px rgba(0,0,0,0.2);";
-  
-  const delBtn = document.createElement('button');
-  delBtn.innerText = "삭제";
-  delBtn.style = "border:none; padding:10px; color:red; cursor:pointer; width:100px; background-color : rgb(70,70,70); outline: none; border-radius: 5px; margin: -1px";
-
-  var mimimimi = 0;
-  
-  morei.onclick = function() {
-    if(mimimimi===0){
-    menu.style.display = "block";
-    mimimimi = 1;
-  }else {
-    menu.style.display = "none";
-    mimimimi = 0;
-  }
-}
-  
-  delBtn.onclick = function() { 
-    deleteP(item.id);
-  }
-
     box.innerHTML = writer + timeText + body;
-    box.appendChild(morei);
-    menu.appendChild(delBtn);
-    box.appendChild(menu);
+
+    // 2. 더보기 이미지와 메뉴 만들기 (내 글일 때만)
+    if (session && item.author === session.user.user_metadata.nickname) {
+      const morei = document.createElement('img');
+      morei.src = "more.png";
+      morei.id = "morei";
+      morei.style = "position:absolute; top:10px; right:10px; cursor:pointer; width:20px;";
+
+      const menu = document.createElement('div');
+      menu.style = "position:absolute; top:35px; right:10px; background:white; border:1px solid #ccc; border-radius:5px; display:none; z-index:10; box-shadow: 0 2px 5px rgba(0,0,0,0.2);";
+      
+      const delBtn = document.createElement('button');
+      delBtn.innerText = "삭제";
+      delBtn.style = "border:none; padding:10px; color:red; cursor:pointer; width:100px; background-color : rgb(70,70,70); outline: none; border-radius: 5px;";
+
+      // 삭제 클릭
+      delBtn.onclick = function() { 
+        deleteP(item.id);
+      };
+
+      // 더보기 클릭 (열고 닫기)
+      morei.onclick = function() {
+        if (menu.style.display === "none") {
+          menu.style.display = "block";
+        } else {
+          menu.style.display = "none";
+        }
+      };
+
+      menu.appendChild(delBtn);
+      box.appendChild(morei);
+      box.appendChild(menu);
+    }
     
     list.appendChild(box);
-  };
-  
+  } // for문 끝
 
   pageCount = pageCount + 1;
-  document.getElementById('moreBtn').style.display = rows.length < 10 ? "none" : "block";
+  const moreBtn = document.getElementById('moreBtn');
+  if (moreBtn) {
+    moreBtn.style.display = rows.length < 10 ? "none" : "block";
+  }
 }
+
 
 init();
 
@@ -268,3 +274,4 @@ async function deleteP(postId) {
     getPosts();
   }
 }
+
