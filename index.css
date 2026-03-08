@@ -36,12 +36,15 @@ body::-webkit-scrollbar {
     width : 8.5vw;
     margin: 30px;
     cursor: pointer;
+    text-align: center;
 }
 
 #signin {
     transition: 0.2s;
     cursor: pointer;
     font-size: 25px;
+    display: inline-block;
+    margin: 0.5vh;
 }
 
 #signin:hover{
@@ -54,6 +57,8 @@ body::-webkit-scrollbar {
     transition: 0.2s;
     cursor: pointer;
     font-size: 25px;
+    display: inline-block;
+    margin: 0.5vh;
 }
 
 #signup:hover{
@@ -65,7 +70,7 @@ body::-webkit-scrollbar {
 
 #welcome {
     display: flexbox;
-    width: 100vw;
+    width: 75vw;
     margin: 0 auto;
     text-align: center;
     margin-top: 200px;
@@ -73,7 +78,7 @@ body::-webkit-scrollbar {
 
 #ment {
     margin: 0 auto;
-    font-size: 110px;
+    font-size: calc(3vw + 2.5vh);
     color: rgb(201, 201, 201);
     background-image: linear-gradient(to bottom, #ffffff, #999999);
     background-clip: text;
@@ -81,15 +86,14 @@ body::-webkit-scrollbar {
 }
 
 #ment2 {
+    font-size: calc(1.5vw + 1.5vh);
     margin: 0 auto;
-    font-size: 45px;
     color: rgb(201, 201, 201);
-    margin-top: -20px;
 }
 
 #go {
     transition: 0.2s;
-    font-size: 40px;
+    font-size: calc(1vw + 2vh);
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
@@ -98,7 +102,7 @@ body::-webkit-scrollbar {
     border-radius: 10px;
     font-weight: 600;
     border: none;
-    margin-top: 50px;
+    margin-top: 5vh;
     cursor: pointer;
 }
 
@@ -182,36 +186,36 @@ body::-webkit-scrollbar {
 }
 
 #logbox {
-    width: 50vw;
-    height: 80vh;
+    width: calc(30vw + 25vh);
+    height: auto;
+    max-height: 90vh;
     margin: 0 auto;
     margin-top: 50px;
     background-color: rgb(14, 14, 14);
     text-align: center;
     border-radius: 30px;
+    margin-bottom: 0;
 }
 
 #llogo {
-    margin-top: 80px;
-    width: 100px;
-    height: 100px;
+    margin-top: 8vh;
+    width: calc(6vw + 6vh);
 }
 
 #lint {
     color: rgb(168, 168, 168);
-    font-size: 50px;
+    font-size: calc(1vw + 3vh);;
     font-weight: 600;
 }
 
 #inpb {
     margin-top: 50px;
-    width: 50vw;
     display: block;
     align-items: center;
 }
 
 #ipid {
-    width: 30vw;
+    width: calc(15vh + 15vw);
     font-size: 30px;
     margin-bottom: 30px;
     padding: 10px;
@@ -224,18 +228,11 @@ body::-webkit-scrollbar {
 }
 
 #ipid:focus {
-    width: 30vw;
-    font-size: 30px;
-    margin-bottom: 30px;
-    padding: 10px;
-    border-radius: 5px; 
-    color : rgb(14, 14, 14);
-    background-color: rgb(201, 201, 201);
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #ipid2 {
-    width: 30vw;
+    width: calc(15vh + 15vw);
     font-size: 30px;
     margin-bottom: 30px;
     padding: 10px;
@@ -248,18 +245,11 @@ body::-webkit-scrollbar {
 }
 
 #ipid2:focus {
-    width: 30vw;
-    font-size: 30px;
-    margin-bottom: 30px;
-    padding: 10px;
-    border-radius: 5px; 
-    color : rgb(14, 14, 14);
-    background-color: rgb(201, 201, 201);
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #ipem {
-    width: 30vw;
+    width: calc(15vh + 15vw);
     font-size: 30px;
     margin-bottom: 30px;
     padding: 10px;
@@ -272,20 +262,13 @@ body::-webkit-scrollbar {
 }
 
 #ipem:focus {
-    width: 30vw;
-    font-size: 30px;
-    margin-bottom: 30px;
-    padding: 10px;
-    border-radius: 5px; 
-    color : rgb(14, 14, 14);
-    background-color: rgb(201, 201, 201);
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 
 
 #ippw {
-    width: 30vw;
+    width: calc(15vh + 15vw);
     font-size: 30px;
     margin-bottom: 30px;
     border: none;
@@ -297,19 +280,11 @@ body::-webkit-scrollbar {
 }
 
 #ippw:focus {
-    width: 30vw;
-    font-size: 30px;
-    margin-bottom: 30px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px; 
-    color : rgb(14, 14, 14);
-    background-color: rgb(201, 201, 201);
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #ippw2 {
-    width: 30vw;
+    width: calc(15vh + 15vw);
     font-size: 30px;
     margin-bottom: 30px;
     border: none;
@@ -321,19 +296,11 @@ body::-webkit-scrollbar {
 }
 
 #ippw2:focus {
-    width: 30vw;
-    font-size: 30px;
-    margin-bottom: 30px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px; 
-    color : rgb(14, 14, 14);
-    background-color: rgb(201, 201, 201);
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 #ippw3 {
-    width: 30vw;
+    width: calc(15vh + 15vw);
     font-size: 30px;
     margin-bottom: 30px;
     border: none;
@@ -345,14 +312,6 @@ body::-webkit-scrollbar {
 }
 
 #ippw3:focus {
-    width: 30vw;
-    font-size: 30px;
-    margin-bottom: 30px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px; 
-    color : rgb(14, 14, 14);
-    background-color: rgb(201, 201, 201);
     box-shadow: 0 0px 10px rgba(255, 255, 255, 0.8);
 }
 
@@ -369,6 +328,7 @@ body::-webkit-scrollbar {
     border: none;
     margin-top: 50px;
     cursor: pointer;
+    margin-bottom: 4vh;
 }
 
 #golg:hover {
@@ -389,6 +349,7 @@ body::-webkit-scrollbar {
     border: none;
     margin-top: 10px;
     cursor: pointer;
+    margin-bottom: 4vh;
 }
 
 #golg2:hover {
