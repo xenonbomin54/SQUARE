@@ -204,14 +204,12 @@ async function getPosts(isMore) {
     const box = document.createElement('div');
     box.style = "border-radius: 10px; padding:10px; background:rgb(49, 49, 49); color:rgb(201, 201, 201); width: 70vw; margin: 0 auto; margin-top: 10px; position: relative;";
     
-    // 1. 글자 내용 먼저 채우기
     const writer = "<strong>" + item.author + "</strong>";
     const date = new Date(item.created_at);
     const timeText = " <small style='color:gray;'>" + date.toLocaleString() + "</small>";
     const body = "<p>" + item.content + "</p>";
     box.innerHTML = writer + timeText + body;
 
-    // 2. 더보기 이미지와 메뉴 만들기 (내 글일 때만)
     if (session && item.author === session.user.user_metadata.nickname) {
       const morei = document.createElement('img');
       morei.src = "more.png";
@@ -225,12 +223,10 @@ async function getPosts(isMore) {
       delBtn.innerText = "삭제";
       delBtn.style = "border:none; padding:10px; color:red; cursor:pointer; width:100px; background-color : rgb(70,70,70); outline: none; border-radius: 5px;";
 
-      // 삭제 클릭
       delBtn.onclick = function() { 
         deleteP(item.id);
       };
 
-      // 더보기 클릭 (열고 닫기)
       morei.onclick = function() {
         if (menu.style.display === "none") {
           menu.style.display = "block";
