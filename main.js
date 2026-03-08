@@ -108,7 +108,6 @@ function openUserMenu() {
 }
 
 async function writePost() {
-  // 1. 현재 세션에서 작성자 정보 가져오기
   const { data: { session } } = await _supabase.auth.getSession();
   
   if (!session) {
@@ -118,8 +117,8 @@ async function writePost() {
 
   const content = document.getElementById('postContent').value;
   const nickname = session.user.user_metadata.nickname;
-
-  const { data, error } = await _supabase
+  if(checkPost(content)) {
+     const { data, error } = await _supabase
     .from('posts')
     .insert([
       { 
@@ -134,6 +133,7 @@ async function writePost() {
     alert("글이 등록되었습니다!");
     document.getElementById('postContent').value = "";
     getPosts();
+  }
   }
 }
 
@@ -156,6 +156,25 @@ async function init() {
       window.location.href = 'index.html';
     }
   }
+}
+
+function checkPost(text) {
+  if (text == "") {
+    alert("내용을 입력해주세요");
+    return false;
+  }
+  
+  if (text.length < 2) {
+    alert("2글자 이상 입력하세요");
+    return false;
+  }
+  
+  if (text.length > 100) {
+    alert("100자 이하로 입력하세요");
+    return false;
+  }
+  
+  return true;
 }
 
 async function getPosts(isMore) {

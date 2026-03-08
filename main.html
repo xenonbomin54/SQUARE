@@ -22,9 +22,10 @@
     <div id="userMenu">
         <div id="logout" onclick="signOut()">Log Out</div>
     </div>
-    <textarea id="postContent">
-    </textarea>
-    <button onclick="writePost()">Post</button>
+    <div id="enters">
+        <textarea id="postContent"></textarea>
+        <button onclick="writePost()" id="postBtn">Post</button>
+    </div>
     <div id="postList"></div>
     <button id="moreBtn" onclick="getPosts(true)">더 보기</button>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
