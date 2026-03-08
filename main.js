@@ -201,8 +201,13 @@ async function getPosts(isMore) {
   for (let i = 0; i < rows.length; i = i + 1) {
     const item = rows[i];
     const box = document.createElement('div');
-    box.style = "border:1px solid #ccc; margin:10px; padding:10px; background:#f9f9f9;";
-    box.innerHTML = "<strong>" + item.author + "</strong><p>" + item.content + "</p>";
+    box.style = "border-radius: 10px; padding:10px; background:rgb(49, 49, 49); color:rgb(201, 201, 201); width: 70vw; margin: 0 auto; margin-top: 10px;" ;
+    const writer = "<strong>" + item.author + "</strong>";
+    const date = new Date(item.created_at); // 컴퓨터용 시간을 우리용 시간으로 변경
+    const timeText = " <small style='color:gray;'>" + date.toLocaleString() + "</small>";
+    const body = "<p>" + item.content + "</p>";
+
+box.innerHTML = writer + timeText + body;
     list.appendChild(box);
   }
 

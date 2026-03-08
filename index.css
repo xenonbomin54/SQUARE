@@ -483,3 +483,15 @@ video {
 ::-webkit-scrollbar-thumb:hover {
   background: #383838;
 }
+
+#postList {
+    margin-top: 10vh;
+}
+
+#wt {
+    color: rgb(201, 201, 201);
+    text-align: center;
+    font-size: 4vh;
+    font-weight: 500;
+    margin-top: 5vh;
+}
