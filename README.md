@@ -28,9 +28,11 @@
 ## 프로젝트 구조
 ```text
 SQUARE/
-├── index.html       # 메인 페이지 및 게시글 피드
-├── login.html       # 사용자 로그인/회원가입 페이지
-├── style.css        # 전체 서비스 디자인 및 레이아웃
+├── index.html       # 랜딩페이지 및 서비스 설명 페이지
+├── signin.html       # 사용자 로그인 페이지
+├── signup.html       # 사용자 회원가입 페이지
+├── main.html       # 게시글 피드 및 업로드 페이지
+├── index.css        # 전체 서비스 디자인 및 레이아웃
 └── script.js        # Supabase 연동 및 게시글 로직
 ```
 
